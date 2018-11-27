@@ -8,35 +8,50 @@ This code was made public to share our research for the benefit of the scientifi
 
 ![GANimation](http://www.albertpumarola.com/images/2018/GANimation/teaser.png)
 
-## Prerequisites
+## 依赖项与Python环境 Prerequisites
+- CentOS 7 
+- Install CUDA, cuDNN 
+- Install Python2.7 安装Python2.7
 - Install PyTorch (version 0.3.1), Torch Vision and dependencies from http://pytorch.org
-- Install requirements.txt (```pip install -r requirements.txt```)
+- Install requirements.txt (```pip install -r requirements.txt```) (更新了该文件，可以直接安装。)
 
-## Data Preparation
+## 数据准备 Data Preparation
 The code requires a directory containing the following files:
-- `imgs/`: folder with all image
-- `aus_openface.pkl`: dictionary containing the images action units.
-- `train_ids.csv`: file containing the images names to be used to train.
-- `test_ids.csv`: file containing the images names to be used to test.
+- `imgs/`: folder with all image 所有图像.
+- `aus_openface.pkl`: dictionary containing the images action units. 面部肌肉表情运动字典.
+- `train_ids.csv`: file containing the images names to be used to train. 要训练的所有图像名字.
+- `test_ids.csv`: file containing the images names to be used to test. 要测试的所有图像名字.
 
 An example of this directory is shown in `sample_dataset/`.
+这个目录下有一个样例。
 
 To generate the `aus_openface.pkl` extract each image Action Units with [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Action-Units) and store each output in a csv file the same name as the image. Then run:
 ```
 python data/prepare_au_annotations.py
 ```
 
-## Run
+## 依次运行 Run
+*由于版权问题，作者无权发布数据集，也没有分享生成的模型。如有需要，要自己获得数据、生成模型。*
+
 To train:
 ```
-bash launch/run_train.sh
+bash launch/run_train.sh (也可以直接运行Python脚本 / also can run python file directly.)
 ```
+举个具体的例子 Take an example ：
+```
+python train.py --data_dir /data/dl_code/GANimation/sample_dataset --name experiment_1 --batch_size 25
+```
+
 To test:
 ```
 python test --input_path path/to/img
 ```
+举个具体的例子 Take an example ：
+```
+python test.py --input_path /data/dl_code/GANimation/sample_dataset/imgs/N_0000000356_00190.jpg
+```
 
-## Citation
+## 遵守协议,表示尊重,添加引用 Citation
 If you use this code or ideas from the paper for your research, please cite our paper:
 ```
 @inproceedings{pumarola2018ganimation,
@@ -46,3 +61,9 @@ If you use this code or ideas from the paper for your research, please cite our 
     year={2018}
 }
 ```
+
+## 参考文献 Reference
+
+1. [论文阅读：GANimation: Anatomically-aware Facial Animation from a Single Image] (https://blog.csdn.net/tobale/article/details/83587140)
+
+2. 
