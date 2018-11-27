@@ -63,7 +63,9 @@ python test.py --input_path /data/dl_code/GANimation/sample_dataset/imgs/N_00000
 ### 面部动作编码系统 FACS ()
 
 面部表情是面部肌肉的组合协调动作的结果,面部动作编码系统（FACS）根据动作单元（AU）来描述面部表情, 动作单元在解剖学上与特定面部肌肉的收缩相关。
-<img src='assets/x1.png' width=90>
+
+<img src='assets/x1.png' width=300>
+
 单个图像的面部动画;最左侧的输入图像Iyr(绿色方块), 参数α控制微笑表情的目标动作单元的激活程度.
 
 ```
