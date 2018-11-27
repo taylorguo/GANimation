@@ -8,6 +8,13 @@ This code was made public to share our research for the benefit of the scientifi
 
 ![GANimation](http://www.albertpumarola.com/images/2018/GANimation/teaser.png)
 
+## 工作的价值 Key Points
+- 基于动作单元（AU）标注的GAN调节方案，在连续流形上定义人类表情的解剖学面部运动 (简言之:可以使生成的面部表情动作连续)
+- 可以控制每个AU的激活并组合使用其中的几个来生成期望的表情变化
+- 无监督训练模型,使用AU标注的图像,并用注意机制使网络对背景和光照变化鲁棒
+- 
+
+
 ## 依赖项与Python环境 Prerequisites
 - CentOS 7 
 - Install CUDA, cuDNN 
@@ -51,6 +58,23 @@ python test --input_path path/to/img
 python test.py --input_path /data/dl_code/GANimation/sample_dataset/imgs/N_0000000356_00190.jpg
 ```
 
+## 原理学习与数据标注  Principle & Annotation
+
+### 面部动作编码系统 FACS ()
+
+面部表情是面部肌肉的组合协调动作的结果,面部动作编码系统（FACS）根据动作单元（AU）来描述面部表情, 动作单元在解剖学上与特定面部肌肉的收缩相关。
+<img src='assets/x1.png' width=90>
+单个图像的面部动画;最左侧的输入图像Iyr(绿色方块), 参数α控制微笑表情的目标动作单元的激活程度.
+
+```
+目标: 构建一个合成面部动画的模型，具有面部动作编码系统FACS的表现能力 & 能够在解剖学表情表达层面连续生成 & 无需任何面部标志.  
+```
+
+
+
+
+
+
 ## 遵守协议,表示尊重,添加引用 Citation
 If you use this code or ideas from the paper for your research, please cite our paper:
 ```
@@ -64,6 +88,6 @@ If you use this code or ideas from the paper for your research, please cite our 
 
 ## 参考文献 Reference
 
-1. [论文阅读：GANimation: Anatomically-aware Facial Animation from a Single Image] (https://blog.csdn.net/tobale/article/details/83587140)
+1. [论文阅读：GANimation: Anatomically-aware Facial Animation from a Single Image](https://blog.csdn.net/tobale/article/details/83587140)
 
 2. 
